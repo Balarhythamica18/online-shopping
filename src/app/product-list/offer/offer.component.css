@@ -1,0 +1,34 @@
+.modal {
+    animation: fadeIn 0.5s ease forwards;
+    z-index:5000;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .modal-content {
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    transition: color 0.3s;
+  }
+  
+ 
+  

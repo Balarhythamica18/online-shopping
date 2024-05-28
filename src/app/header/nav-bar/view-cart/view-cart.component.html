@@ -1,0 +1,154 @@
+<app-top-header></app-top-header>
+<div class="container my-4">
+  <div class="row">
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body text-dark d-flex justify-content-between align-items-center p-4 alert alert-warning">
+              <p class="m-0">
+               <b> Are you sure you want to clear the cart?</b>
+              </p>
+              <button type="button" class="close bg-danger text-white p-1" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="d-flex justify-content-end p-2 alert-footer">
+              <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+              <button (click)="clearCart()" type="button" class="btn btn-danger">Ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    
+      <div class="col-md-4 mb-4 mt-5">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title">Cart Details</h2>
+            
+            <div *ngIf="cart.length > 0; else emptyCart">
+              <div *ngFor="let item of cart" class="cart-item my-3 p-2 border-bottom">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <p class="mb-1 fw-bold">{{ item.name }}</p>
+                    <p class="mb-1">Rs.{{ item.price }} - Quantity: {{ item.quantity }}kg</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <button (click)="decrementQuantity(item)" [disabled]="item.quantity === 0" class="btn btn-danger btn-sm">-</button>
+                      <span class="mx-2">{{ item.quantity }}</span>
+                      <button (click)="incrementQuantity(item)" [disabled]="item.quantity >= item.inStock" class="btn btn-success btn-sm">+</button>
+                    </div>
+                  </div>
+                  <button (click)="removeFromCart(item)" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="w-100 d-flex justify-content-between">
+                <button (click)="goToExplore()" class="btn btn-success">Add Item</button>
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">Clear Cart</button>
+              </div>
+            </div>
+      
+            <ng-template #emptyCart>
+              <div class="text-center">
+                <p class="mt-5 fw-bold text-danger">Oops!! Your cart is empty</p>
+                <button (click)="goToExplore()" class="btn btn-success">Start Shopping!! <i class="fas fa-heart"></i></button>
+              </div>
+            </ng-template>
+            
+          </div>
+        </div>
+      </div>
+      
+
+
+    
+    <div class="col-md-4 mb-4 mt-5">
+      <div class="bill-details  card shadow-sm">
+        <div class="card-body">
+          <h4 class="fw-bold">Bill Details </h4>
+          <div class="d-flex justify-content-between mt-3">
+            <p>Total:</p>
+            <p>Rs.{{ originalTotal }}</p>
+          </div>
+          <div *ngIf="showDiscountMessage" class="d-flex justify-content-between mt-3">
+            <p>Discounted Total:</p>
+            <p class="text-danger">-{{ discountedTotal }}</p>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <p>Delivery fee:</p>
+            <p class="text-success">free</p>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <p>Platform fee:</p>
+            <p>Rs.{{ platformFee }}</p>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <p>GST charges:</p>
+            <p>Rs.{{ GSTcharges }}</p>
+          </div>
+          <b><hr></b>
+          <div *ngIf="showDiscountMessage" class="alert alert-success mt-4" role="alert">
+            Congratulations! Your purchase cost is above 1000, so you get a 50% discount!
+          </div>
+          <div *ngIf="originalTotal < 1000" class="alert alert-warning mt-4" role="alert">
+            Add more products worth Rs.{{ 1000 - originalTotal }} to get a 50% discount!
+          </div>
+          <div class="d-flex justify-content-between mt-3 fw-bold">
+            <p>To pay:</p>
+            <p><b>Rs.{{ cartTotal }}</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 mt-5">
+        <div class="card text-start shadow-sm payment-body">
+            <div class="card-body">
+                <h4 class="card-title">Payment Options</h4>
+                <h6>Total: Rs.{{ cartTotal }}</h6>
+                <hr>
+                <div><i class="fas fa-shop"></i> <b class="text-success"> Fresh Fruits</b> <span class="address">| Delivery in 40-45mins</span></div>
+                <div><i class="fas fa-home"></i> <b> Home </b><span class="address"> | your location</span></div>
+                <hr>
+                <h5 class="p-2 text-dark">Preferred Payment</h5>
+                <div class="payment d-flex justify-content-between align-items-center">
+                    <div class="payment-option">
+                      <span style="color: #4285F4;"><i class="fab fa-google-pay"></i> </span>
+                        <h6><b> Google Pay</b></h6>
+                    </div>
+                    <input type="radio" name="paymentOption" value="Google Pay" [(ngModel)]="selectedPayment">
+                </div>
+                <div class="payment d-flex justify-content-between align-items-center">
+                    <div class="payment-option">
+                      <span style="color: #003087;"><i class="fab fa-paypal"></i> </span>
+                        <h6><b> Paypal</b></h6>
+                    </div>
+                    <input type="radio" name="paymentOption" value="Paypal" [(ngModel)]="selectedPayment">
+                </div>
+                <div class="payment d-flex justify-content-between align-items-center">
+                    <div class="payment-option">
+                      <span style="color: #FF9900;"><i class="fab fa-amazon-pay"></i></span>
+                        <h6><b> Amazon Pay</b></h6>
+                    </div>
+                    <input type="radio" name="paymentOption" value="Amazon Pay" [(ngModel)]="selectedPayment">
+                </div>
+                <hr>
+                <h5 class="p-2">Other Payment Options</h5>
+                <div class="payment d-flex justify-content-between align-items-center">
+                    <div class="payment-option">
+                      <span style="color: #000000;"><i class="fas fa-money-bill-wave"></i></span>
+                        <h6><b> Pay On Delivery</b></h6>
+                    </div>
+                    <input type="radio" name="paymentOption" value="Pay On Delivery" [(ngModel)]="selectedPayment">
+                </div>
+                <button class="w-100 p-2 bg bg-success text-white" [disabled]="!selectedPayment" (click)="proceed()">Proceed</button>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+</div>

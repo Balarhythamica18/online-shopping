@@ -1,0 +1,110 @@
+
+.container {
+    max-width: 1200px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.out-of-stock {
+    opacity: 0.5;
+}
+
+.text-danger {
+    font-weight: bold;
+}
+
+.alert {
+    position: fixed;
+    bottom: 15px; /* Adjust the distance from the bottom as needed */
+    left: 25%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 90%;
+    max-width: 600px;
+    background-color: #e0a800;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideInUp 0.5s ease forwards;
+  }
+  
+  @media (max-width: 768px) {
+    .alert {
+      width:70%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .alert {
+      width: 60%;
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+
+  
+

@@ -1,0 +1,38 @@
+<app-top-header></app-top-header>
+
+<div class="main">
+    <div class="contact mt-5">
+        <div class="top d-flex justify-content-between">
+            <div class="logo">
+                <img src="assets/fruits.png" alt="Logo">
+            </div>
+            <div class="details">
+                <h2>Fresh Fruits</h2>
+            </div>
+        </div>
+        <h3>We also supply fruits for wholesale! Feel free to contact us.</h3>
+        <p class="align-items-center">
+            <i class="fas fa-phone"> <a href="tel:9876543210"> 9876543210</a></i>
+            <i class="fas fa-envelope"> <a href="mailto:freshfruits@gmail.com"> freshfruits@gmail.com</a></i><br>
+            <i class="fas fa-map-marker-alt"></i> 150, Anna Salai
+            T.Nagar, Chennai - 600012
+        </p>
+        <form #Message="ngForm" >
+            <div class="form-group">
+                <input type="text" [(ngModel)]="name" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <input type="email" [(ngModel)]="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <input type="tel" [(ngModel)]="phone" name="phone" required placeholder="Enter your contact number">
+            </div>
+            <div class="form-group">
+                <textarea type="textarea" [(ngModel)]="message" name="message" required placeholder="Enter your message"></textarea>
+            </div>
+            <div class="buttons">
+                <button class="bg bg-success text-white" type="submit" (click)="responseMessage()" [ngClass]="{'fade-out': Message.invalid}" [disabled]="Message.invalid">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

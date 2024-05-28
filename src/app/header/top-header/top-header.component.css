@@ -1,0 +1,86 @@
+
+.header {
+  background-color: #28a745;
+  color: white;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:2000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo img {
+  margin-right: 10px;
+}
+
+
+
+.navbar {
+  padding: 0;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.nav-link {
+  color: white !important;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-link:hover {
+  background-color: #218838;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+/* Updated CSS */
+.navbar-toggler {
+  border: none;
+  order: 2; /* Change the order to move it to the end */
+}
+
+.navbar-toggler-icon {
+  position: absolute;
+  top:-10px;
+  color:white;
+  right: 20px; /* Adjust the distance from the right */
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: #28a745;
+    order: 3; /* Move the collapse content to the end */
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and toggle icon */
+    align-items: center;
+  }
+
+  .nav-item {
+    text-align: center;
+  }
+
+  .navbar-brand {
+    order: 1; /* Move the brand/logo to the beginning */
+  }
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+}
+

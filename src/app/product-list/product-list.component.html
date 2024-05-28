@@ -1,0 +1,47 @@
+<div *ngIf="itemAdded" class="alert">
+    <p>Item added to the cart</p>
+    <i (click)="viewCart()" class="fas fa-shopping-cart"></i>
+  </div>
+  
+<app-header></app-header>
+
+
+<app-offer></app-offer>
+
+<!-- Search input field -->
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12">
+           
+           <app-search (searchEvent)="onSearch($event)"></app-search>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+            <div *ngIf="filteredProducts.length === 0" class="alert alert-warning">
+                No fruits match your search.
+            </div>
+
+            <div class="row d-flex flex-wrap">
+                <div *ngFor="let product of filteredProducts" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card product-item h-100" [ngClass]="{ 'out-of-stock': product.inStock === 0 }">
+                        <img [src]="'assets/' + product.name.toLowerCase().split(' ').join('') + '.jfif'" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">Rs.{{ product.price }} (1kg)</p>
+                            <div *ngIf="product.inStock > 0">
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-success w-100 me-2 ms-3 b-3" (click)="addToCart(product)">Add</button>
+                                    <button class="btn btn-warning" (click)="viewCart()"><i class="fa fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                            <div *ngIf="product.inStock === 0" class="text-danger">Out of Stock</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

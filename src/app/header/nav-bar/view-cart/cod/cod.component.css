@@ -1,0 +1,48 @@
+.main {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+.confirmation-message-container-fluid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.confirmation-message-container-fluid img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+.confirmation-card h2 {
+    margin: 0;
+    color: #4CAF50;
+}
+.confirmation-card p {
+    color: #555;
+    margin: 10px 0 20px;
+}
+.confirmation-card span {
+    display: block;
+    margin-top: 10px;
+    color: #999;
+}
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #45a049;
+}

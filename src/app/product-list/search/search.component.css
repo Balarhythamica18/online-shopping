@@ -1,0 +1,19 @@
+.input-group.mb-3 {
+    max-width: 400px; /* Adjust the width as needed */
+    margin: auto;
+  }
+  
+  .input-group-text {
+    background-color: #f8f9fa; /* Background color of the search icon */
+    color: #6c757d; /* Icon color */
+  }
+  
+  .form-control {
+    border-color: #ced4da; /* Border color */
+  }
+  
+  .form-control:focus {
+    border-color:none; /* Border color when focused */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Box shadow when focused */
+  }
+  

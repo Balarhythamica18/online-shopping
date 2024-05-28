@@ -1,0 +1,22 @@
+<div class="main d-flex justify-content-center align-items-center vh-100">
+    <div class="signin-container p-4 bg-white rounded shadow-sm">
+        <img src="assets/fruits.png" height="80px" width="80px" class="mb-3">
+        <form #signupForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" [(ngModel)]="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block" [disabled]="!signupForm.form.valid">Sign Up</button>
+            <p class="text-center mt-3">or</p>
+            <p (click)="login()" class="text-center">Already a user? <span class="login-link">Login</span></p>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+/* Custom styles for the modal */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style for the modal body with alert look */
+  .modal-body.alert {
+    background-color: white; /* Bootstrap warning color */
+    border: 1px solid white;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  /* Custom close button */
+  .modal-body .close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    opacity: 0.75;
+  }
+  
+  .modal-body .close:hover {
+    opacity: 1;
+  }
+  
+  /* Footer styles to align buttons */
+  .alert-footer {
+    background-color:white; /* Bootstrap warning color */
+    border-top: 1px solid white;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .alert-footer .btn {
+    border-radius: 5px;
+  }
+  
+  .alert-footer .btn-secondary {
+    background-color: #6c757d; /* Bootstrap secondary color */
+    border-color: #6c757d;
+  }
+  
+  .alert-footer .btn-danger {
+    background-color: #dc3545; /* Bootstrap danger color */
+    border-color: #dc3545;
+  }
+  
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+}
+
+/* Card Styles */
+.card {
+    border:2px solid #bdc3c7;
+    background-color: #f1f2f6;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.payment h6 {
+    margin: 0;
+}
+
+.explore{
+    border:2px solid #bdc3c7;
+    background-color: #f1f2f6;
+}
+/* Text Styles */
+.text-start {
+    text-align: left !important;
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+h4, h5 {
+    margin: 0.5rem 0;
+}
+
+h6 {
+    margin: 0.25rem 0;
+}
+
+/* Icon Styles */
+.payment i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/* Payment Option Styles */
+.payment {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.payment:last-child {
+    border-bottom: none;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+/* Button Styles */
+button {
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+button.bg-success {
+    background-color: #28a745;
+}
+
+button.bg-success:hover {
+    background-color: #218838;
+}
+h5{
+    color: #2f3542;
+}
+.address{
+    color:#a4b0be;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .card {
+        margin: 1rem;
+    }
+}
