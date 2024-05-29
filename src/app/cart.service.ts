@@ -21,8 +21,7 @@ export class CartService {
   }
 
   getCartTotal(): number {
-    return parseFloat(this.cartTotal.toFixed(0));
-
+    return Math.round(this.cartTotal);
   }
 
   addToCart(product: Product) {
@@ -36,6 +35,7 @@ export class CartService {
     if (this.cartTotal > 1000) {
       this.cartTotal /= 2;
     }
+    this.cartTotal = Math.round(this.cartTotal);
   }
 
   removeFromCart(product: Product) {
@@ -44,6 +44,7 @@ export class CartService {
       const productToRemove = this.cart[productIndex];
       this.cartTotal -= productToRemove.price * productToRemove.quantity;
       this.cart.splice(productIndex, 1);
+      this.cartTotal = Math.round(this.cartTotal);
     }
   }
 
@@ -57,16 +58,20 @@ export class CartService {
     if (item && item.quantity < item.inStock) {
       item.quantity++;
       this.cartTotal += item.price;
+      this.cartTotal = Math.round(this.cartTotal);
     }
   }
 
   decrementProductQuantity(product: Product) {
     const item = this.cart.find(p => p.name === product.name);
-    if (item && item.quantity > 1) {
-      item.quantity--;
-      this.cartTotal -= item.price;
-    } else {
-      this.removeFromCart(product);
+    if (item) {
+      if (item.quantity > 1) {
+        item.quantity--;
+        this.cartTotal -= item.price;
+      } else {
+        this.removeFromCart(product);
+      }
+      this.cartTotal = Math.round(this.cartTotal);
     }
   }
 }

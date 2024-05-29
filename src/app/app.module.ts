@@ -47,6 +47,6 @@ import { ResponseMessageComponent } from './header/nav-bar/contact/response-mess
   
   ],
   providers: [CartService],
-  bootstrap: [AppComponent,NavBarComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
